@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lily Gniedziejko</title>
+  <meta name="description"
+    content="Lily Gniedziejko — CS at UIUC researching AI agents for reliable infrastructure, networked systems, and formal verification." />
+  <meta name="author" content="Lily Gniedziejko" />
+  <link rel="canonical" href="https://lilygn.github.io/" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Lily Gniedziejko" />
+  <meta property="og:description"
+    content="UIUC CS · AI agents for infrastructure · Networked systems · Formal verification" />
+  <meta property="og:image" content="pfp.jpeg" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛰️</text></svg>" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --page:#e6ebe8;      --col:#ffffff;      --fg:#2b302e;
+      --muted:#67706c;
+      --line:#e3e7e5;
+      --link:#26635a;
+      --fill:#f5f7f6;      --fill-accent:#ecf2ef;      --name:#1e4640;      --accent-text:#6c7772;    }
+    @media (prefers-color-scheme: dark){
+      :root:not([data-theme="light"]){
+        --page:#0e1211; --col:#161a19; --fg:#e3e7e5; --muted:#98a29e;
+        --line:#272d2b; --link:#6fc0ae; --fill:#1b201f; --fill-accent:#1a2422;
+        --name:#8fc4b6; --accent-text:#98a29e;
+      }
+    }
+    :root[data-theme="dark"]{
+      --page:#0e1211; --col:#161a19; --fg:#e3e7e5; --muted:#98a29e;
+      --line:#272d2b; --link:#6fc0ae; --fill:#1b201f; --fill-accent:#1a2422;
+      --name:#8fc4b6; --accent-text:#98a29e;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;padding:0;
+      font-family:Lato,"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      font-size:16px;line-height:1.6;
+      color:var(--fg);background:var(--page);
+      -webkit-font-smoothing:antialiased;
+    }
+    .container{
+      max-width:800px;margin:auto;padding:28px 24px 40px;
+      background:var(--col);min-height:100vh;
+    }
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .head{display:flex;gap:24px;align-items:center;margin-bottom:16px}
+    .head img{width:200px;height:200px;object-fit:cover;flex-shrink:0}
+    h1{font-size:2rem;font-weight:700;margin:0 0 6px;color:var(--name)}
+    .affil{color:var(--accent-text);margin:0}
+    header,.intro-block{border-bottom:2px solid var(--line);padding-bottom:20px;margin-bottom:20px}
+    .contact{margin:12px 0 0;color:var(--muted);font-size:.95rem}
+
+    h2{font-size:1.3rem;font-weight:700;margin:28px 0 12px;color:var(--fg)}
+    p{margin:0 0 12px}
+
+    ul{list-style:none;padding:0;margin:0 0 12px}
+    li{margin-bottom:10px;padding:8px 12px;background:var(--fill);list-style:inside}
+    li:last-child{margin-bottom:0}
+    ul ul{margin:6px 0 0}
+    ul ul li{background:transparent;padding:2px 0;margin-bottom:2px}
+    #publications li,#talks li,#awards li,#service li{background:var(--fill-accent)}
+
+    .muted{color:var(--muted)}
+    .date{color:var(--muted);font-weight:400}
+
+    .item,.pub{background:var(--fill);padding:10px 12px;margin:0 0 10px}
+    .pub{background:var(--fill-accent)}
+    .item > .t{font-weight:600}
+    .item ul{margin:6px 0 0}
+    .item li{background:transparent;padding:2px 0;margin-bottom:2px;list-style:disc inside}
+    .pub .venue{color:var(--muted);font-size:.9rem}
+    .pub .title{font-weight:600}
+    .pub .authors{font-size:.95rem}
+
+    footer{margin-top:32px;padding-top:16px;border-top:2px solid var(--line);color:var(--muted);font-size:.88rem}
+
+    #theme-toggle{
+      position:fixed;top:16px;right:16px;width:34px;height:34px;padding:0;
+      display:flex;align-items:center;justify-content:center;
+      background:var(--col);color:var(--muted);
+      border:1px solid var(--line);border-radius:6px;
+      cursor:pointer;line-height:1;font-size:15px;
+      transition:color .15s ease,border-color .15s ease;
+    }
+    #theme-toggle:hover{color:var(--fg);border-color:var(--muted)}
+    #theme-toggle:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+    #theme-toggle .moon{display:none}
+    :root[data-theme="dark"] #theme-toggle .sun{display:none}
+    :root[data-theme="dark"] #theme-toggle .moon{display:block}
+    @media (prefers-color-scheme: dark){
+      :root:not([data-theme="light"]) #theme-toggle .sun{display:none}
+      :root:not([data-theme="light"]) #theme-toggle .moon{display:block}
+    }
+
+    @media (max-width:640px){
+      .container{padding:24px 18px 40px}
+      .head{gap:16px;flex-wrap:wrap}
+      .head img{width:130px;height:130px}
+      h1{font-size:1.6rem}
+    }
+    @media print{
+      body{background:#fff}
+      .container{max-width:none;padding:0}
+      a{color:var(--fg)}
+      #theme-toggle{display:none}
+      li,.item,.pub{background:transparent;padding:2px 0}
+    }
+  </style>
+  <script>
+    try{
+      var t = localStorage.getItem('theme');
+      if(t) document.documentElement.setAttribute('data-theme', t);
+    }catch(e){}
+  </script>
+</head>
+<body>
+
+  <button id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Toggle theme">
+    <span class="sun" aria-hidden="true">☾</span>
+    <span class="moon" aria-hidden="true">☀</span>
+  </button>
+
+  <div class="container">
+  <div class="head">
+    <img src="pfp.jpeg" alt="Lily Gniedziejko" />
+    <div>
+      <h1>Lily Gniedziejko</h1>
+      <p class="affil">B.S. Computer Science, University of Illinois Urbana-Champaign</p>
+    </div>
+  </div>
+
+  <p>
+    I am an undergraduate researcher in xLab at UIUC, advised by <a href="https://tianyin.github.io/" target="_blank" rel="noopener"> Prof. Tianyin Xu</a>.
+    I work on reinforcement learning environments for evaluating and improving AI agents that diagnose and mitigate failures in production systems. 
+
+  </p>
+
+  <p class="contact">
+    <a href="mailto:lilyg3@illinois.edu">lilyg3 at illinois.edu</a> ·
+    <a href="resume.pdf" target="_blank" rel="noopener">CV</a> ·
+    <a href="https://scholar.google.com/citations?user=xQImgMUAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> ·
+    <a href="https://github.com/lilygn" target="_blank" rel="noopener">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/lilygniedz" target="_blank" rel="noopener">LinkedIn</a>
+  </p>
+
+  <section class="education" id="education">
+  <h2>Education</h2>
+  <ul>
+    <li>
+      <strong>University of Illinois Urbana-Champaign</strong> <span class="date">- B.S. Computer Science, expected May 2028</span><br>
+      GPA 3.97/4.00 · Dean's List (4×) · James Scholar<br>
+    </li>
+    <li>
+      <strong>Highland Park High School</strong> <span class="date">- graduated 2024</span><br>
+      Salutatorian (2nd of 570) · 4.66 GPA
+    </li>
+  </ul>
+  </section>
+
+  <section class="interests" id="interests">
+  <h2>Research Interests</h2>
+  <p>
+    AI agents are increasingly trusted to diagnose and mitigate failures in critical infrastructure, but
+    how well they actually do so is largely unmeasured. Evaluating these &ldquo;AI SRE&rdquo; agents
+    requires environments that reproduce the way real systems break. 
+  </p>
+  <p>
+    I approach this through fault injection at different layers of the stack.
+    In SREGym, I inject faults into live Kubernetes clusters and the distributed systems running atop it.
+    My current work focuses on the network layer: evaluating how well agents perform root cause analysis in emulated data center and campus network fabrics.
+    In addition, building those environments surfaces a prerequisite problem: to check an agent against the intended state of a system, that state has to be specifiable in the first place.
+    My current work also explores how to leverage formal verification to specify networks and distributed system states.
+  </p>
+  </section>
+
+  <section class="publications" id="publications">
+  <h2>Publications</h2>
+
+  <div class="pub">
+    <div class="venue">arXiv preprint, 2026</div>
+    <div class="title">SREGym: A Live Benchmark for AI SRE Agents with High-Fidelity Failure Scenarios
+      <a href="https://arxiv.org/abs/2605.07161" target="_blank" rel="noopener">[pdf]</a></div>
+    <div class="authors">Jackson Clark*, Yiming Su*, Saad Mohammad Rafid Pial, Yifang Tian,
+      <strong>Lily Gniedziejko</strong>, Hans-Arno Jacobsen, Yinfang Chen, Tianyin Xu
+      <span class="muted">(*co-primary authors)</span></div>
+  </div>
+
+  <div class="pub">
+    <div class="venue">CAIS '26 - 1st ACM Conference on AI and Agentic Systems</div>
+    <div class="title">SREGym: A Live Training Ground for AI SRE Agents with High-Fidelity Failure Drills
+      <a href="https://raw.githubusercontent.com/yimingsu01/yimingsu01.github.io/refs/heads/main/pub/cais26-demos-paper95.pdf" target="_blank" rel="noopener">[pdf]</a></div>
+    <div class="authors">Jackson Clark, Yiming Su, Saad Mohammad Rafid Pial,
+      <strong>Lily Gniedziejko</strong>, Tianyin Xu</div>
+  </div>
+  </section>
+
+  <section class="experience" id="experience">
+  <h2>Experience</h2>
+
+  <div class="item">
+    <div class="t">Software Engineering Intern, Ciroos <span class="date">(May 2026 – present)</span></div>
+    <ul>
+      <li>Enabled data centers as a reinforcement learning environment by designing and building a
+        network fault-injection platform for a scalable VXLAN/EVPN data center fabrics.</li>
+      <li> Built virtualized data centers using VMs running vendor network operating systems.</li>
+      <li>Created a live topology explorer that auto-discovers all nodes and links into an interactive
+        graph, letting users click any node to run vendor CLI commands and view output inline.</li>
+      <li>Built Grafana dashboards backed by a Prometheus telemetry pipeline for live fabric monitoring.</li>
+      <li>Designed a reflective prompt optimization loop that boosted a lightweight model's root-cause-analysis
+        performance to match a frontier model.</li>
+      <li>Evaluated AI SRE agents by simulating Kubernetes and multi-cloud infrastructure faults.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="t">Research Intern, xLab, UIUC <span class="date">(June 2025 – present)</span></div>
+    <ul>
+      <li>Designed misoperation as a new fault mechanism by deploying TiDB on Kubernetes and building a
+        custom microservice on top of it, extending the benchmark's coverage to management-plane failures.</li>
+      <li>Created and deployed the Kubernetes-based application used for TiDB fault injection and mitigation.</li>
+      <li>Implemented MCP tools for LangGraph agents, including Jaeger and Prometheus observability tools.</li>
+      <li>Built an automated distributed testing tool using tmux-based parallel execution to inject faults
+        across remote nodes.</li>
+      <li>Created a trace visualization tool converting JSONL agent outputs into readable HTML, streamlining
+        evaluation and debugging for the research team.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="t">Software Engineering Intern, Mueller Water Products <span class="date">(May – September 2025)</span></div>
+    <ul>
+      <li>Developed an internal chatbot that processes over 1,500 technical PDFs, including 400+ page
+        manuals and engineering drawings, to assist the maintenance team, reduce downtime, and link
+        directly to exact pages in source documents.</li>
+      <li>Created a Microsoft Teams bot that makes SQL queries and outputs Power BI dashboards.</li>
+      <li>Implemented a full-stack data entry application for autopour and melting machines.</li>
+    </ul>
+  </div>
+  </section>
+
+  <section class="research" id="research">
+  <h2>Research</h2>
+  <p>
+    <strong>SREGym</strong> is a high-fidelity, interactive benchmark for AI Site Reliability Engineering:
+    90 SRE problems spanning hardware, OS, misoperation, and application-level faults across Kubernetes,
+    TiDB, MongoDB, and Kafka. It models production complexity through noise injection and diverse
+    failure modes, including metastable and correlated faults; agents diagnose and mitigate using Prometheus,
+    Loki, and Jaeger MCP servers. SREGym is used by researchers at Microsoft Research, Resolve AI, TierZero (acquired by Cognition), the
+    University of Washington, and SRE startups.
+    <a href="https://sregym.com" target="_blank" rel="noopener">[site]</a>
+    <a href="https://github.com/SREGym/SREGym" target="_blank" rel="noopener">[code]</a>
+    <a href="https://siebelschool.illinois.edu/news/sregym" target="_blank" rel="noopener">[press]</a>
+  </p>
+  <p>Selected contributions:</p>
+  <ul>
+    <li><strong>Misoperation fault mechanism.</strong> Enabled misoperation as a new fault class by porting
+      TiDB and building a new application on top, expanding the benchmark's fault coverage into a
+      previously unexplored category.</li>
+      <li><strong>FleetCast: satellite operations simulator.</strong> Real-time simulator for satellite
+          telemetry and orbital passes with a station dashboard showing live satellite connections. Backed by
+          TiDB, containerized with Docker and Helm for Kubernetes deployment; used in xLab for fault injection
+          research.</li>
+      
+      
+    <li><strong>Prometheus and Jaeger MCP tools.</strong> Model Context Protocol tools for the LangGraph
+      agent so it can query live metrics and distributed traces during incident resolution.</li>
+    <li><strong>Agent trace visualizer.</strong> Converts JSONL agent outputs into readable, timestamped
+      HTML reports, making evaluation faster and more legible for the research team.</li>
+    <li><strong>Fault injection TUI.</strong> Interactive terminal UI in Go using Bubble Tea for dynamic
+      fault injection and application deployment.</li>
+    <li><strong>Distributed end-to-end benchmark runner.</strong> Distributes SREGym problems across
+      multiple nodes, handling cluster creation, parallel tmux execution, and log collection.</li>
+  </ul>
+  </section>
+
+  <section class="talks" id="talks">
+  <h2>Poster Sessions &amp; Talks</h2>
+  <ul>
+    <li><strong>May 2026</strong> - <em>SREGym: A Live Training Ground for AI SRE Agents.</em>
+      Demo presentation at the 1st ACM Conference on AI and Agentic Systems (CAIS '26).</li>
+    <li><strong>April 2026</strong> - <em>SREGym paper session.</em> ISUR Research Expo, UIUC.</li>
+    <li><strong>November 2025</strong> - <em>Autonomous SRE agent research.</em> Trick or Research,
+      presented to undergraduate students at UIUC.</li>
+  </ul>
+  </section>
+
+  <section class="news" id="news">
+  <h2>News</h2>
+  <ul>
+    <li><strong>[TALK]</strong> <span class="date">May 2026</span>- Presented SREGym at ACM CAIS.</li>
+    <li><strong>[AWARD]</strong> <span class="date">April 2026</span>- Honored at the 2026 Siebel Celebration of Excellence.</li>
+    <li><strong>[PAPER]</strong><span class="date">April 2026</span>- SREGym was accepted at CAIS '26, the 1st ACM Conference on AI and Agentic
+      Systems, a new ACM venue dedicated to AI agents research.
+      <a href="https://www.caisconf.org/program/2026/demos/sregym/" target="_blank" rel="noopener">[program]</a></li>
+      <li><strong>[PRESS]</strong> <span class="date">April 2026</span>- SREGym was featured in Siebel School of Computing and Data Science news.
+        <a href="https://siebelschool.illinois.edu/news/sregym" target="_blank" rel="noopener">[article]</a></li>
+    <li><strong>[GRANT]</strong> <span class="date">February 2026</span>- SREGym received a Slingshot grant from the Laude Institute, supporting
+      continued development of the benchmark and its adoption across academia and industry.
+      <a href="https://www.laude.org/updates/slingshots-two" target="_blank" rel="noopener">[announcement]</a></li>
+
+    <li><strong>[ADOPTION]</strong> SREGym is now used by Microsoft Research, Resolve AI, TierZero, and the University
+      of Washington.</li>
+    <li><strong>[AWARD]</strong> <span class="date">April 2025</span> - Honored at the 2025 Siebel Celebration of Excellence.</li>
+  </ul>
+  </section>
+
+  <section class="awards" id="awards">
+  <h2>Awards</h2>
+  <ul>
+    <li> Honored at Siebel School of Computing &amp; Data Science Celebration of Excellence (2025, 2026) </li>
+    <li>Dunn Family Scholarship, UIUC</li>
+    <li>Engineering Visionary Scholarship, UIUC</li>
+    <li>James Scholar, Grainger College of Engineering</li>
+    <li>Dean's List, 4 semesters</li>
+    <li>NVIDIA Bridge Program, Summer 2025 (selective invitation)</li>
+    <li>Salutatorian, Highland Park High School, 2024 (2nd of 570)</li>
+    <li>Chamber of Commerce Scholarship, Highland Park, 2024</li>
+    <li>Polish School Red Ribbon Honor Graduate (highest honor, every year through graduation)</li>
+  </ul>
+  </section>
+
+  <section class="service" id="service">
+  <h2>Service &amp; Leadership</h2>
+  <ul>
+    <li><strong>CS STARS- Student Ambassador &amp; Research Scholar</strong>, Siebel School, UIUC
+      <span class="date">(July 2025 – present)</span>. I represent the school at events, mentor prospective
+      students, and participate in outreach for the Siebel School of Computing and Data Science.</li>
+    <li><strong>Girls Who Code- Facilitator</strong> <span class="date">(September 2025 – present)</span>.
+      I teach K-12 students Python and mentor them through coding projects. </li>
+    <li><strong>Phi Sigma Rho (STEM sorority)- Risk Manager &amp; Social Media Director</strong>
+      <span class="date">(September 2024 - December 2025)</span>. I led risk management training and support
+      recruitment and service events.</li>
+  </ul>
+  </section>
+
+  <footer>
+    Lily Gniedziejko ·
+    <a href="mailto:lilyg3@illinois.edu">lilyg3 at illinois.edu</a> ·
+    <a href="https://scholar.google.com/citations?user=xQImgMUAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> ·
+    <a href="https://github.com/lilygn" target="_blank" rel="noopener">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/lilygniedz" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+  </div>
+
+  <script>
+    (function(){
+      var root = document.documentElement,
+          btn  = document.getElementById('theme-toggle'),
+          mq   = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function isDark(){
+        var t = root.getAttribute('data-theme');
+        return t ? t === 'dark' : mq.matches;
+      }
+      function syncLabel(){
+        btn.setAttribute('aria-label',
+          isDark() ? 'Switch to light theme' : 'Switch to dark theme');
+      }
+      btn.addEventListener('click', function(){
+        var next = isDark() ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try{ localStorage.setItem('theme', next); }catch(e){}
+        syncLabel();
+      });
+      mq.addEventListener('change', syncLabel);
+      syncLabel();
+    })();
+  </script>
+
+</body>
+</html>
